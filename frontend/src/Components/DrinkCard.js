@@ -8,24 +8,24 @@ import {
   CardFooter,
 } from "shards-react";
 
-import { Badge, Button } from "@geist-ui/react";
+import { Badge, Button, Tooltip } from "@geist-ui/react";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 export default function DrinkCard(props) {
-  let size = 220;
-
-  console.log(props);
 
   return (
-    <div style={{ display: "inline-block", marginLeft: 25, padding: 5 }}>
-      <Card style={{ maxWidth: size }}>
+    <div style={{ display: "inline-block", padding: 5 }}>
+      <Card style={{ maxWidth: 210 }}>
         <CardImg
           style={{
-            maxWidth: size,
-            maxHeight: size,
+            objectFit: "cover",
+            maxWidth: 210,
             width: "auto",
-            height: "auto",
+            height: 120,
+            borderTopLeftRadius: 4,
+            borderTopRightRadius: 4,
           }}
-          src="https://www.acouplecooks.com/wp-content/uploads/2019/12/Vodka-Cranberry-001.jpg"
+          src={props.src}
         />
         <CardBody>
           <CardTitle>{props.name}</CardTitle>
@@ -33,6 +33,8 @@ export default function DrinkCard(props) {
             style={{
               width: 150,
               whiteSpace: "break-spaces",
+              minHeight: 50,
+              maxHeight: 50,
             }}
           >
             {props.description}
@@ -49,7 +51,17 @@ export default function DrinkCard(props) {
           >
             {props.selected ? "Selected" : "Select"}
           </Button>
-          <Badge style={{backgroundColor: "#2ecc71", marginLeft: 8}} type="success">In Stock</Badge>
+          <Tooltip text={"This drink is in stock :)"} style={{opacity: "100"}}>
+            <AiFillCheckCircle
+              style={{
+                marginLeft: -5,
+                padding: 3,
+                width: 50,
+                height: 30,
+                fill: "#2ecc71",
+              }}
+            ></AiFillCheckCircle>
+          </Tooltip>
         </CardBody>
       </Card>
     </div>

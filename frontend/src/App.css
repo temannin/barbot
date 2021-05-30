@@ -1,5 +1,21 @@
 .App {
-  margin: 5%
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 2000px) {
+  .App {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .App {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+  }
 }
 
 .App-logo {
