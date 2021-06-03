@@ -42,7 +42,6 @@ function Main() {
         loading={isLoading}
         style={{ marginTop: 30, width: "100%" }}
         onClick={() => {
-          setIsLoading(true);
           fetch("/api/v1/tend", {
             method: "POST",
             headers: {
@@ -94,7 +93,7 @@ function Settings() {
     <div>
       <Card style={{ marginTop: "20px" }}>
         <CardHeader>Pump Configuration</CardHeader>
-        <Grid.Container gap={.8} style={{ padding: "8px" }}>
+        <Grid.Container gap={0.8} style={{ padding: "8px" }}>
           {rows.map((row) => (
             <Grid xs={24}>
               {row.map((pump, idx) => (
@@ -124,7 +123,15 @@ function Settings() {
         auto
         block
         style={{ marginTop: 20, width: "100%" }}
-        onClick={() => {}}
+        onClick={() => {
+          fetch("/api/v1/settings", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(pumps)
+          });
+        }}
       >
         Save Settings
       </Button>

@@ -7,7 +7,7 @@ import { useLunr } from "react-lunr";
 import lunr from "lunr";
 
 export default function DrinkSelector() {
-  const [drinkSelected, setDrinkSelected] = React.useState(1);
+  const [drinkSelected, setDrinkSelected] = React.useState(null);
   const [drinkList, setDrinkList] = React.useState([]);
   const [searchTerm, setSearchTerm] = React.useState("");
 
